@@ -89,6 +89,27 @@ namespace FajlBeolvasas
 			Beolvasas(filenev, karakterek);
 		}
 
+		static void F08(List<Karakter> karakterek)
+		{
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				for (int b = 0; b < karakterek.Count; b++)
+				{
+					if (karakterek[a].Ero + karakterek[a].Szint > karakterek[b].Ero + karakterek[a].Szint)
+					{
+						Karakter temp = karakterek[a];
+						karakterek[a] = karakterek[b];
+						karakterek[b] = temp;
+					}
+				}
+			}
+
+			for (int a = 0; a <3; a++)
+			{
+				Console.WriteLine(karakterek[a]);
+			}
+		}
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -106,12 +127,15 @@ namespace FajlBeolvasas
 			F06(karakterek,4);
 			F07_iras(karakterek);
 			F07_beolvasas("karakterek.csv",karakterek);
+            Console.WriteLine();
+            F08(karakterek);
 		}
 
 		
 
 		static void Beolvasas(string filenev, List<Karakter> karakterek)
 		{
+			karakterek.Clear();
 			StreamReader sr = new (filenev);
             //Console.WriteLine(sr.ReadToEnd());
             //Console.WriteLine(sr.ReadLine());
