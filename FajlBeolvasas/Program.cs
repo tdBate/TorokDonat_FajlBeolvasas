@@ -72,6 +72,23 @@ namespace FajlBeolvasas
 			return szurtKarakter;
 		}
 
+		static void F07_iras(List<Karakter> karakterek)
+		{
+			string szoveg = "";
+
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				szoveg += karakterek[a].Nev + ";"+karakterek[a].Szint+";"+karakterek[a].Eletero+";"+karakterek[a].Ero+"\n";
+			}
+
+			File.WriteAllText(Path.Combine("./", "karakterek.csv"), szoveg);
+		}
+
+		static void F07_beolvasas(string filenev,List<Karakter> karakterek)
+		{
+			Beolvasas(filenev, karakterek);
+		}
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -87,6 +104,8 @@ namespace FajlBeolvasas
 			F04(karakterek);
 			F05(karakterek[2],50);
 			F06(karakterek,4);
+			F07_iras(karakterek);
+			F07_beolvasas("karakterek.csv",karakterek);
 		}
 
 		
