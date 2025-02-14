@@ -18,6 +18,17 @@ namespace FajlBeolvasas
 			return (max.Nev,max.Eletero,max.Ero);
         }
 
+		static void F03(List<Karakter> karakterek)
+		{
+			double ossz = 0;
+
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				ossz += karakterek[i].Szint;
+			}
+
+			Console.WriteLine("Átlag szint: " + ossz / karakterek.Count);
+		}
 
 		static void Main(string[] args)
 		{
@@ -30,6 +41,7 @@ namespace FajlBeolvasas
 			}*/
 
 			F02(karakterek);
+			F03(karakterek);
 		}
 
 		
