@@ -57,6 +57,21 @@ namespace FajlBeolvasas
 			else { return false; }
 		}
 
+		static List<Karakter> F06(List<Karakter> karakterek, int szint)
+		{
+			List<Karakter> szurtKarakter = new List<Karakter>();
+
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				if (karakterek[a].Szint > szint)
+				{
+					szurtKarakter.Add(karakterek[a]);
+				}
+			}
+
+			return szurtKarakter;
+		}
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -71,6 +86,7 @@ namespace FajlBeolvasas
 			F03(karakterek);
 			F04(karakterek);
 			F05(karakterek[2],50);
+			F06(karakterek,4);
 		}
 
 		
