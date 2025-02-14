@@ -110,6 +110,28 @@ namespace FajlBeolvasas
 			}
 		}
 
+		static void F09(List<Karakter> karakterek)
+		{
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				for (int b = 0; b < karakterek.Count; b++)
+				{
+					if (karakterek[a].Ero + karakterek[a].Eletero > karakterek[b].Ero + karakterek[b].Eletero)
+					{
+						Karakter temp = karakterek[a];
+						karakterek[a] = karakterek[b];
+						karakterek[b] = temp;
+					}
+				}
+			}
+
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				Console.WriteLine(karakterek[a]);
+			}
+		}
+
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -129,6 +151,8 @@ namespace FajlBeolvasas
 			F07_beolvasas("karakterek.csv",karakterek);
             Console.WriteLine();
             F08(karakterek);
+            Console.WriteLine();
+            F09(karakterek);
 		}
 
 		
