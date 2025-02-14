@@ -51,6 +51,12 @@ namespace FajlBeolvasas
             }
 		}
 
+		static bool F05(Karakter karakter, int ertek)
+		{
+			if (karakter.Ero > ertek) { return true; }
+			else { return false; }
+		}
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -64,6 +70,7 @@ namespace FajlBeolvasas
 			F02(karakterek);
 			F03(karakterek);
 			F04(karakterek);
+			F05(karakterek[2],50);
 		}
 
 		
