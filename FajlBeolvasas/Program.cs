@@ -131,6 +131,32 @@ namespace FajlBeolvasas
 			}
 		}
 
+		static void F10(List<Karakter> karakterek)
+		{
+			Random rnd = new Random();
+			Karakter karakter1 = karakterek[rnd.Next(0, karakterek.Count)];
+			Karakter karakter2 = karakterek[rnd.Next(0, karakterek.Count)];
+
+			int kor = 0;
+			bool marade = true;
+			while (marade)
+			{
+				kor++;
+                Console.WriteLine(kor+". kör elkezdődött");
+                Console.WriteLine("Adatok:");
+                Console.WriteLine("\t"+karakter1);
+				Console.WriteLine("\t" + karakter2);
+
+				karakter1.Eletero -= karakter2.Ero;
+				karakter2.Eletero -= karakter1.Ero;
+				Console.WriteLine("Mindketten egymásra támadtak");
+
+				if (karakter1.Eletero <= 0) { Console.WriteLine(karakter1.Nev+" meghalt. :c"); marade = false; }
+				if (karakter2.Eletero <= 0) { Console.WriteLine(karakter2.Nev + " meghalt. :c"); marade = false; }
+                Console.WriteLine();
+            }
+		}
+
 
 		static void Main(string[] args)
 		{
@@ -153,6 +179,7 @@ namespace FajlBeolvasas
             F08(karakterek);
             Console.WriteLine();
             F09(karakterek);
+			F10(karakterek);
 		}
 
 		
