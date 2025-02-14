@@ -30,6 +30,27 @@ namespace FajlBeolvasas
 			Console.WriteLine("Átlag szint: " + ossz / karakterek.Count);
 		}
 
+		static void F04(List<Karakter> karakterek)
+		{
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				for (int b = 0; b < karakterek.Count; b++)
+				{
+					if (karakterek[a].Ero > karakterek[b].Ero)
+					{
+						Karakter temp = karakterek[a];
+						karakterek[a] = karakterek[b];
+						karakterek[b] = temp;
+					}
+				}
+			}
+
+			for (int a = 0; a < karakterek.Count; a++)
+			{
+				Console.WriteLine(karakterek[a]);
+            }
+		}
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
@@ -42,6 +63,7 @@ namespace FajlBeolvasas
 
 			F02(karakterek);
 			F03(karakterek);
+			F04(karakterek);
 		}
 
 		
