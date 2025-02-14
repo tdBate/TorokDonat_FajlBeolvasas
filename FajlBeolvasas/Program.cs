@@ -1,17 +1,38 @@
-﻿namespace FajlBeolvasas
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace FajlBeolvasas
 {
 	internal class Program
 	{
+		static (string,int,int) F02(List<Karakter> karakterek)
+		{
+			Karakter max = karakterek[0];
+			for (int i = 0; i < karakterek.Count; i++)
+			{
+				if (karakterek[i].Eletero > max.Eletero)
+				{
+					max = karakterek[i];
+				}
+			}
+
+			return (max.Nev,max.Eletero,max.Ero);
+        }
+
+
 		static void Main(string[] args)
 		{
 			List<Karakter> karakterek = [];
 			Beolvasas("karakterek.txt", karakterek);
 
-			foreach (var item in karakterek)
+			/*foreach (var item in karakterek)
 			{
 				Console.WriteLine(item);
-			}
+			}*/
+
+			F02(karakterek);
 		}
+
+		
 
 		static void Beolvasas(string filenev, List<Karakter> karakterek)
 		{
