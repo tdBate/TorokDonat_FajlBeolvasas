@@ -95,7 +95,7 @@ namespace FajlBeolvasas
 			{
 				for (int b = 0; b < karakterek.Count; b++)
 				{
-					if (karakterek[a].Ero + karakterek[a].Szint > karakterek[b].Ero + karakterek[a].Szint)
+					if (karakterek[a].Ero + karakterek[a].Szint > karakterek[b].Ero + karakterek[b].Szint)
 					{
 						Karakter temp = karakterek[a];
 						karakterek[a] = karakterek[b];
