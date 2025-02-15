@@ -32,18 +32,23 @@ namespace FajlBeolvasas
 
 		static void F04(List<Karakter> karakterek)
 		{
-			for (int a = 0; a < karakterek.Count; a++)
+			bool marade = true;
+			while (marade)
 			{
-				for (int b = 0; b < karakterek.Count; b++)
+				marade = false;
+				for (int a = 0; a < karakterek.Count - 1; a++)
 				{
-					if (karakterek[a].Ero > karakterek[b].Ero)
+					if (karakterek[a].Ero < karakterek[a + 1].Ero)
 					{
-						Karakter temp = karakterek[a];
-						karakterek[a] = karakterek[b];
-						karakterek[b] = temp;
-					}
-				}
+                        Karakter temp = karakterek[a];
+                        karakterek[a] = karakterek[a+1];
+                        karakterek[a+1] = temp;
+
+						marade = true;
+                    }
+                }
 			}
+			
 
 			for (int a = 0; a < karakterek.Count; a++)
 			{
@@ -91,20 +96,24 @@ namespace FajlBeolvasas
 
 		static void F08(List<Karakter> karakterek)
 		{
-			for (int a = 0; a < karakterek.Count; a++)
-			{
-				for (int b = 0; b < karakterek.Count; b++)
-				{
-					if (karakterek[a].Ero + karakterek[a].Szint > karakterek[b].Ero + karakterek[b].Szint)
-					{
-						Karakter temp = karakterek[a];
-						karakterek[a] = karakterek[b];
-						karakterek[b] = temp;
-					}
-				}
-			}
+            bool marade = true;
+            while (marade)
+            {
+                marade = false;
+                for (int a = 0; a < karakterek.Count - 1; a++)
+                {
+                    if (karakterek[a].Ero + karakterek[a].Szint < karakterek[a+1].Ero + karakterek[a+1].Szint)
+                    {
+                        Karakter temp = karakterek[a];
+                        karakterek[a] = karakterek[a + 1];
+                        karakterek[a + 1] = temp;
 
-			for (int a = 0; a <3; a++)
+                        marade = true;
+                    }
+                }
+            }
+
+            for (int a = 0; a <3; a++)
 			{
 				Console.WriteLine(karakterek[a]);
 			}
@@ -112,20 +121,24 @@ namespace FajlBeolvasas
 
 		static void F09(List<Karakter> karakterek)
 		{
-			for (int a = 0; a < karakterek.Count; a++)
-			{
-				for (int b = 0; b < karakterek.Count; b++)
-				{
-					if (karakterek[a].Ero + karakterek[a].Eletero > karakterek[b].Ero + karakterek[b].Eletero)
-					{
-						Karakter temp = karakterek[a];
-						karakterek[a] = karakterek[b];
-						karakterek[b] = temp;
-					}
-				}
-			}
+            bool marade = true;
+            while (marade)
+            {
+                marade = false;
+                for (int a = 0; a < karakterek.Count - 1; a++)
+                {
+                    if (karakterek[a].Ero + karakterek[a].Eletero < karakterek[a + 1].Ero + karakterek[a + 1].Eletero)
+                    {
+                        Karakter temp = karakterek[a];
+                        karakterek[a] = karakterek[a + 1];
+                        karakterek[a + 1] = temp;
 
-			for (int a = 0; a < karakterek.Count; a++)
+                        marade = true;
+                    }
+                }
+            }
+
+            for (int a = 0; a < karakterek.Count; a++)
 			{
 				Console.WriteLine(karakterek[a]);
 			}
@@ -179,6 +192,7 @@ namespace FajlBeolvasas
             F08(karakterek);
             Console.WriteLine();
             F09(karakterek);
+            Console.WriteLine();
 			F10(karakterek);
 		}
 
