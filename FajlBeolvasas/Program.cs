@@ -7,7 +7,7 @@ namespace FajlBeolvasas
 		static (string,int,int) F02(List<Karakter> karakterek)
 		{
 			Karakter max = karakterek[0];
-			for (int i = 0; i < karakterek.Count; i++)
+			for (int i = 1; i < karakterek.Count; i++)
 			{
 				if (karakterek[i].Eletero > max.Eletero)
 				{
